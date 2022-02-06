@@ -56,10 +56,22 @@ Commands for client in manual mode:
 ## Strategy
 
 The strategy of the agent is based on the function `reward` that evaluates a given state.
-At each turn, the agent will simulate every play possible among play, discard and hint actions. The action with the best expected reward will be picked.
+At each turn, the agent will simulate every play possible among play, discard and hint actions. The action with the best expected reward will be picked by the function `policy`.
 
 ### Reward
 
+The expected reward of a given state is evaluated using knowledge of the game state. Briefly, it gives positive points for :
++ finished firework
++ card placed
++ hot card discovered
++ useful card discovered
++ useless (discardable) card discovered
+
+And negative points for :
++ storm token used
++ note token used
++ hot card discarded
++ useful card discarded
 
 ## Results
 
